@@ -24,7 +24,16 @@ public class CalculatorTest {
     void tearDown() {
     }
 
+    @Test
+    void testDivision6() {
 
+        Exception exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> Calculator.divide(12.5, 0),
+                "IllegalArgumentException expected."
+        );
+
+    }
     @ParameterizedTest
     @CsvSource(value = {"10,2,5", "10,4,2.5", "12.5,5,2.5", "10,2.5,4", "12.5,2.5,5"})
     public void ParamTest(float a,float b,float expected){
